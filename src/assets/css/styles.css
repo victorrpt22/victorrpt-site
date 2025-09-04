@@ -1,3 +1,66 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Blog post content styling */
+.post-content {
+  @apply leading-7 text-gray-800 dark:text-gray-200;
+  overflow-x: hidden; /* prevent page-wide horizontal scroll */
+}
+
+.post-content h1, .post-content h2, .post-content h3 {
+  @apply font-semibold text-gray-900 dark:text-gray-100 mt-8 mb-3;
+}
+.post-content h1 { @apply text-3xl; }
+.post-content h2 { @apply text-2xl; }
+.post-content h3 { @apply text-xl; }
+
+.post-content p { @apply my-4; }
+.post-content ul { @apply list-disc pl-6 my-4; }
+.post-content ol { @apply list-decimal pl-6 my-4; }
+.post-content a { @apply text-blue-600 hover:underline; }
+
+/* Inline code */
+.post-content :not(pre) > code {
+  @apply px-1.5 py-0.5 rounded bg-gray-100 dark:bg-gray-800 text-pink-700 dark:text-pink-300 border border-gray-200 dark:border-gray-700;
+}
+
+/* Code blocks */
+.post-content pre {
+  @apply relative overflow-x-auto rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-900 text-gray-100 my-6;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.02), 0 8px 24px rgba(0,0,0,0.08);
+}
+.post-content pre code {
+  @apply block whitespace-pre px-4 py-4;
+  width: max-content; /* expand to fit long lines */
+  min-width: 100%;   /* but at least fill the container */
+}
+
+/* Mac-style traffic lights header */
+.post-content pre::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 32px;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.06), rgba(255,255,255,0));
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+.post-content pre::after {
+  content: '';
+  position: absolute;
+  top: 10px; left: 12px;
+  width: 42px; height: 12px;
+  background:
+    radial-gradient(circle at 6px 6px, #ff5f56 5px, transparent 6px),
+    radial-gradient(circle at 21px 6px, #ffbd2e 5px, transparent 6px),
+    radial-gradient(circle at 36px 6px, #27c93f 5px, transparent 6px);
+}
+
+/* Prevent page-wide horizontal scroll from wide tables/images as well */
+.post-content table, .post-content img, .post-content blockquote {
+  @apply max-w-full;
+}
+.post-content table { @apply block overflow-x-auto border border-gray-200 dark:border-gray-800 rounded-lg my-6; }
+.post-content blockquote { @apply border-l-4 border-gray-300 dark:border-gray-700 pl-4 italic text-gray-700 dark:text-gray-300; }

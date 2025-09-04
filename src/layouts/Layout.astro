@@ -1,29 +1,101 @@
 ---
 const { title = "Victor RPT", description = "Sitio personal de Victor Ricardo Pérez Torres" } = Astro.props;
 import "../assets/css/styles.css";
+const isEs = Astro.url.pathname.startsWith('/es');
+const lang = isEs ? 'es' : 'en';
+const labels = isEs
+  ? { home: 'Inicio', blog: 'Blog', projects: 'Proyectos', cv: 'CV', contact: 'Contacto' }
+  : { home: 'Home', blog: 'Blog', projects: 'Projects', cv: 'Resume', contact: 'Contact' };
+const base = isEs ? '/es' : '';
+const PROD = import.meta.env.PROD;
+const GA_ID = import.meta.env.PUBLIC_GA_ID;
+const gaInline = GA_ID
+  ? `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${GA_ID}',{anonymize_ip:true});`
+  : '';
 ---
-<html lang="es">
+<html lang={lang}>
   <head>
     <meta charset="utf-8" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="icon" href="/favicon.svg" />
+    <script is:inline>
+      // Initialize theme early to avoid flash
+      try {
+        const pref = localStorage.getItem('theme');
+        const sysDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const useDark = pref ? pref === 'dark' : sysDark;
+        document.documentElement.classList.toggle('dark', useDark);
+      } catch {}
+    </script>
+    {PROD && GA_ID && (
+      <>
+        <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}></script>
+        <script is:inline set:html={gaInline} />
+      </>
+    )}
   </head>
-  <body class="bg-gray-50 text-gray-900 min-h-screen flex flex-col">
-    <header class="border-b bg-white/70 backdrop-blur sticky top-0 z-10">
+  <body class="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 min-h-screen flex flex-col">
+    <header class="border-b border-gray-200 dark:border-gray-800 bg-white/70 dark:bg-gray-900/70 backdrop-blur sticky top-0 z-10">
       <nav class="container mx-auto px-4 py-3 flex items-center gap-6 text-sm">
-        <a class="font-semibold hover:text-blue-600" href="/">Inicio</a>
-        <a class="hover:text-blue-600" href="/blog">Blog</a>
-        <a class="hover:text-blue-600" href="/projects">Proyectos</a>
-        <a class="hover:text-blue-600" href="/cv">CV</a>
-        <a class="hover:text-blue-600 ml-auto" href="/contact">Contacto</a>
+        <a class="font-semibold hover:text-blue-600" href={`${base}/`}>{labels.home}</a>
+        <a class="hover:text-blue-600" href={`${base}/blog`}>{labels.blog}</a>
+        <a class="hover:text-blue-600" href={`${base}/projects`}>{labels.projects}</a>
+        <a class="hover:text-blue-600" href={`${base}/cv`}>{labels.cv}</a>
+        <a class="hover:text-blue-600 ml-auto" href={`${base}/contact`}>{labels.contact}</a>
+        <span class="inline-flex items-center gap-1 border border-gray-300 dark:border-gray-700 rounded px-2 py-1 ml-2">
+          <a id="lang-en" class={`hover:text-blue-600 ${!isEs ? 'font-semibold' : ''}`} href={Astro.url.pathname.replace(/^\/es/, '')}>EN</a>
+          <span>|</span>
+          <a id="lang-es" class={`hover:text-blue-600 ${isEs ? 'font-semibold' : ''}`} href={Astro.url.pathname.startsWith('/es') ? Astro.url.pathname : `/es${Astro.url.pathname}`}>ES</a>
+        </span>
+        <button id="theme-toggle" aria-label="Toggle dark mode" class="ml-2 rounded border border-gray-300 dark:border-gray-700 px-2 py-1 hover:bg-gray-100 dark:hover:bg-gray-800">
+          <span class="inline dark:hidden">🌙</span>
+          <span class="hidden dark:inline">☀️</span>
+        </button>
       </nav>
     </header>
-    <main class="container mx-auto px-4 py-8 grow">
+    <main class="container mx-auto px-4 py-8 grow overflow-x-hidden">
       <slot />
     </main>
-    <footer class="border-t bg-white text-center text-sm text-gray-600 py-6">
+    <footer class="border-t border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 text-center text-sm text-gray-600 dark:text-gray-400 py-6">
       © {new Date().getFullYear()} Victor RPT — victorrpt.com
     </footer>
+
+    <script>
+      // Persist language preference when clicking toggle
+      document.addEventListener('click', (e) => {
+        const t = e.target;
+        if (!(t instanceof HTMLElement)) return;
+        if (t.id === 'lang-en') {
+          try { localStorage.setItem('prefLang', 'en'); } catch {}
+        }
+        if (t.id === 'lang-es') {
+          try { localStorage.setItem('prefLang', 'es'); } catch {}
+        }
+      });
+      // Auto-redirect on first visit based on browser language if no preference set
+      try {
+        const pref = localStorage.getItem('prefLang');
+        const redirected = sessionStorage.getItem('langRedirected');
+        if (!pref && !redirected) {
+          const wantsEs = (navigator.language || navigator.userLanguage || '').toLowerCase().startsWith('es');
+          const path = location.pathname;
+          if (wantsEs && !path.startsWith('/es')) {
+            sessionStorage.setItem('langRedirected', '1');
+            location.replace('/es' + path);
+          }
+        }
+      } catch {}
+
+      // Theme toggle
+      (function(){
+        const btn = document.getElementById('theme-toggle');
+        if (!btn) return;
+        btn.addEventListener('click', () => {
+          const isDark = document.documentElement.classList.toggle('dark');
+          try { localStorage.setItem('theme', isDark ? 'dark' : 'light'); } catch {}
+        });
+      })();
+    </script>
   </body>
 </html>

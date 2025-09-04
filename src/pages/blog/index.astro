@@ -1,16 +1,17 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+const posts = await getCollection("blog", ({ data, slug }) => data.locale === "en" && !data.draft && slug.startsWith("en/"));
+posts.sort((a, b) => +new Date(b.data.pubDate) - +new Date(a.data.pubDate));
 ---
-<Layout title="Blog - Victor RPT" description="Artículos sobre software, DevOps y más">
+<Layout title="Blog - Victor RPT" description="Articles about software, DevOps, and more">
   <h1 class="text-3xl font-bold mb-6">Blog</h1>
-  <ul class="space-y-3 list-disc pl-5">
-    <li>
-      <a class="text-blue-600 hover:underline" href="/blog/first-post">Mi primer post</a>
-    </li>
+  <ul class="space-y-4">
+    {posts.map((p) => (
+      <li>
+        <a class="text-blue-600 hover:underline" href={`/blog/${p.slug.replace(/^en\//,'')}`}>{p.data.title}</a>
+        {p.data.description && <p class="text-sm text-gray-600">{p.data.description}</p>}
+      </li>
+    ))}
   </ul>
-
-  <p class="text-sm text-gray-500 mt-6">
-    Próximamente: índice automático usando content collections de Astro.
-  </p>
 </Layout>
-

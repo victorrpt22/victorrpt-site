@@ -1,7 +1,7 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "../../layouts/Layout.astro";
 ---
-<Layout title="Resume - Victor RPT" description="Experience, skills, and education of Víctor Ricardo Pérez Torres">
+<Layout title="CV - Victor RPT" description="Experiencia, habilidades y formación de Víctor Ricardo Pérez Torres">
   <header class="mb-8">
     <h1 class="text-3xl font-bold">Víctor Ricardo Pérez Torres</h1>
     <p class="text-gray-700">Software & Cloud Engineer (B.E. in ICT Engineering)</p>
@@ -14,32 +14,32 @@ import Layout from "../layouts/Layout.astro";
   </header>
 
   <section class="mb-8">
-    <h2 class="text-xl font-semibold mb-2">Summary</h2>
+    <h2 class="text-xl font-semibold mb-2">Resumen</h2>
     <p class="text-gray-700">
-      Cloud & DevOps Engineer with 6+ years of experience designing and implementing scalable solutions on AWS,
-      automation frameworks, and CI/CD pipelines. Proven track record in cloud migrations, infrastructure as code,
-      and process optimization that reduce costs and improve system reliability. Bilingual (Spanish/English), passionate
-      about emerging technologies and continuous learning.
+      Cloud & DevOps Engineer con 6+ años de experiencia diseñando e implementando soluciones escalables en AWS,
+      frameworks de automatización y pipelines CI/CD. Historial comprobado en migraciones a la nube, infraestructura
+      como código y optimización de procesos que reducen costos y mejoran la confiabilidad del sistema. Bilingüe
+      (Español/Inglés), apasionado por tecnologías emergentes y el aprendizaje continuo.
     </p>
   </section>
 
   <section class="mb-8">
-    <h2 class="text-xl font-semibold mb-2">Skills</h2>
+    <h2 class="text-xl font-semibold mb-2">Habilidades</h2>
     <div class="grid sm:grid-cols-2 gap-4 text-gray-800">
       <div>
-        <h3 class="font-medium">Programming & Scripting</h3>
+        <h3 class="font-medium">Programación & Scripting</h3>
         <ul class="flex flex-wrap gap-2 mt-2 text-sm">
-          <li class="px-3 py-1 bg-gray-200 rounded">Python (advanced)</li>
+          <li class="px-3 py-1 bg-gray-200 rounded">Python (avanzado)</li>
           <li class="px-3 py-1 bg-gray-200 rounded">JavaScript</li>
           <li class="px-3 py-1 bg-gray-200 rounded">Bash</li>
         </ul>
       </div>
       <div>
-        <h3 class="font-medium">Cloud Platforms</h3>
+        <h3 class="font-medium">Plataformas Cloud</h3>
         <p class="mt-2 text-sm text-gray-700">AWS (ECS, EKS, S3, RDS, DynamoDB, VPC, MSK, Route53, EC2)</p>
       </div>
       <div>
-        <h3 class="font-medium">DevOps & Automation</h3>
+        <h3 class="font-medium">DevOps & Automatización</h3>
         <ul class="flex flex-wrap gap-2 mt-2 text-sm">
           <li class="px-3 py-1 bg-gray-200 rounded">Docker</li>
           <li class="px-3 py-1 bg-gray-200 rounded">Docker Swarm</li>
@@ -50,7 +50,7 @@ import Layout from "../layouts/Layout.astro";
         </ul>
       </div>
       <div>
-        <h3 class="font-medium">Monitoring & Tools</h3>
+        <h3 class="font-medium">Monitoreo & Herramientas</h3>
         <ul class="flex flex-wrap gap-2 mt-2 text-sm">
           <li class="px-3 py-1 bg-gray-200 rounded">Datadog</li>
           <li class="px-3 py-1 bg-gray-200 rounded">Jira</li>
@@ -59,7 +59,7 @@ import Layout from "../layouts/Layout.astro";
         </ul>
       </div>
       <div>
-        <h3 class="font-medium">Practices & Methodologies</h3>
+        <h3 class="font-medium">Prácticas & Metodologías</h3>
         <ul class="flex flex-wrap gap-2 mt-2 text-sm">
           <li class="px-3 py-1 bg-gray-200 rounded">Scrum</li>
           <li class="px-3 py-1 bg-gray-200 rounded">IaC</li>
@@ -71,49 +71,52 @@ import Layout from "../layouts/Layout.astro";
   </section>
 
   <section class="mb-8">
-    <h2 class="text-xl font-semibold mb-4">Experience</h2>
+    <h2 class="text-xl font-semibold mb-4">Experiencia</h2>
     <div class="space-y-6">
       <div>
         <div class="flex flex-wrap items-baseline gap-x-2">
           <h3 class="font-semibold">Softtek — Lead Automation Specialist</h3>
-          <span class="text-sm text-gray-600">Aug 2023 — Present · Remote</span>
+          <span class="text-sm text-gray-600">Ago 2023 — Actualidad · Remote</span>
         </div>
         <ul class="list-disc pl-5 text-gray-700 mt-2">
-          <li>Designed and implemented CI/CD pipelines using GitLab and Docker, cutting deployment time by 40%.</li>
-          <li>Led automation projects reducing manual workload by 30%, improving reliability and cost.</li>
-          <li>Migrated on‑prem workloads to AWS, improving scalability and security.</li>
+          <li>Diseñé e implementé pipelines CI/CD con GitLab y Docker, reduciendo el tiempo de despliegue en 40%.</li>
+          <li>Lideré proyectos de automatización que disminuyeron el trabajo manual en 30%, mejorando confiabilidad y costos.</li>
+          <li>Migré cargas on‑prem a AWS, mejorando escalabilidad y seguridad.</li>
         </ul>
       </div>
       <div>
         <div class="flex flex-wrap items-baseline gap-x-2">
           <h3 class="font-semibold">Softtek — System Engineer</h3>
-          <span class="text-sm text-gray-600">Jan 2021 — Aug 2023 · Remote</span>
+          <span class="text-sm text-gray-600">Ene 2021 — Ago 2023 · Remote</span>
         </div>
         <ul class="list-disc pl-5 text-gray-700 mt-2">
-          <li>Automated infrastructure monitoring with Terraform (Datadog provider), reducing incident response time by 25%.</li>
-          <li>Supported Linux servers and in‑house Python apps, ensuring 99.9% uptime.</li>
+          <li>Automaticé monitoreo de infraestructura con Terraform (proveedor Datadog), reduciendo el tiempo de respuesta a incidentes en 25%.</li>
+          <li>Soporte a servidores Linux y aplicaciones internas en Python, asegurando 99.9% de disponibilidad.</li>
         </ul>
       </div>
       <div>
         <div class="flex flex-wrap items-baseline gap-x-2">
           <h3 class="font-semibold">Samsung Research Tijuana — DevOps Engineer</h3>
-          <span class="text-sm text-gray-600">Mar 2018 — Jan 2021</span>
+          <span class="text-sm text-gray-600">Mar 2018 — Ene 2021</span>
         </div>
         <ul class="list-disc pl-5 text-gray-700 mt-2">
-          <li>Managed and scaled Django‑Angular applications on AWS ECS/EKS clusters.</li>
-          <li>Automated workflows with Apache Airflow, improving data processing efficiency by 20%.</li>
-          <li>Developed Bash/Python scripts to optimize deployments and monitoring.</li>
+          <li>Administré y escalé aplicaciones Django‑Angular en clústeres AWS ECS/EKS.</li>
+          <li>Automatización de flujos con Apache Airflow, mejorando eficiencia de procesamiento de datos en 20%.</li>
+          <li>Desarrollo de scripts Bash/Python para optimizar despliegues y monitoreo.</li>
         </ul>
       </div>
     </div>
   </section>
 
   <section class="mb-8">
-    <h2 class="text-xl font-semibold mb-2">Education & Certifications</h2>
+    <h2 class="text-xl font-semibold mb-2">Educación y Certificaciones</h2>
     <ul class="list-disc pl-5 text-gray-700">
-      <li>AWS Certified Cloud Practitioner — <span class="italic">Credly</span></li>
+      <li>
+        AWS Certified Cloud Practitioner — <span class="italic">Credly</span>
+      </li>
       <li>B.E. Software Development and Management — UTT (2018–2023)</li>
       <li>Associate Degree in ICT — UTT (2014–2016)</li>
     </ul>
   </section>
 </Layout>
+
