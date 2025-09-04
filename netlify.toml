@@ -1,0 +1,8 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  # GA4 measurement IDs are public by design. Tell Netlify's secrets scanner to ignore this key.
+  SECRETS_SCAN_OMIT_KEYS = "PUBLIC_GA_ID"
+
