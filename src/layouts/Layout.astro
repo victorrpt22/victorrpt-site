@@ -1,22 +1,29 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+---
+const { title = "Victor RPT", description = "Sitio personal de Victor Ricardo Pérez Torres" } = Astro.props;
+import "../assets/css/styles.css";
+---
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" />
+  </head>
+  <body class="bg-gray-50 text-gray-900 min-h-screen flex flex-col">
+    <header class="border-b bg-white/70 backdrop-blur sticky top-0 z-10">
+      <nav class="container mx-auto px-4 py-3 flex items-center gap-6 text-sm">
+        <a class="font-semibold hover:text-blue-600" href="/">Inicio</a>
+        <a class="hover:text-blue-600" href="/blog">Blog</a>
+        <a class="hover:text-blue-600" href="/projects">Proyectos</a>
+        <a class="hover:text-blue-600" href="/cv">CV</a>
+        <a class="hover:text-blue-600 ml-auto" href="/contact">Contacto</a>
+      </nav>
+    </header>
+    <main class="container mx-auto px-4 py-8 grow">
+      <slot />
+    </main>
+    <footer class="border-t bg-white text-center text-sm text-gray-600 py-6">
+      © {new Date().getFullYear()} Victor RPT — victorrpt.com
+    </footer>
+  </body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
