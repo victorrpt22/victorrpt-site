@@ -1,17 +1,24 @@
 ---
 const { title, description, link } = Astro.props as {
   title: string;
-  description: string;
+  description?: string;
   link: string;
 };
+const external = /^https?:\/\//.test(link);
 ---
 
-<article class="border rounded-lg p-5 bg-white shadow-sm hover:shadow transition">
+<article class="border border-gray-200 dark:border-gray-700 rounded-lg p-5 bg-white dark:bg-gray-800 shadow-sm hover:shadow-md transition">
   <header class="mb-2">
     <h3 class="text-xl font-semibold">
-      <a class="hover:text-blue-600" href={link} rel="noopener noreferrer" target="_blank">{title}</a>
+      <a
+        class="hover:text-blue-600"
+        href={link}
+        target={external ? "_blank" : undefined}
+        rel={external ? "noopener noreferrer" : undefined}
+      >
+        {title}
+      </a>
     </h3>
   </header>
-  <p class="text-gray-600">{description}</p>
+  {description && <p class="text-gray-600 dark:text-gray-300">{description}</p>}
 </article>
-
