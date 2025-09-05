@@ -4,7 +4,7 @@
 
 /* Blog post content styling */
 .post-content {
-  @apply leading-7 text-gray-800 dark:text-gray-200;
+  @apply leading-7 text-gray-800 dark:text-gray-200 text-[0.95rem] sm:text-base;
   overflow-x: hidden; /* prevent page-wide horizontal scroll */
 }
 

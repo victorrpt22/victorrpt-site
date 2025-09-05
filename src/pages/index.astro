@@ -8,7 +8,7 @@ const latest = posts.slice(0, 3);
 ---
 <Layout title="Victor RPT - Software & DevOps">
   <section class="text-center">
-    <h1 class="text-4xl font-bold mb-4">Hi! I'm Victor Perez</h1>
+    <h1 class="text-3xl sm:text-4xl font-bold mb-4">Hi! I'm Victor Perez</h1>
     <p class="text-lg mb-6">Software & Cloud Engineer (B.E. in ICT Engineering)</p>
     <p>This is my personal site with my <strong>resume</strong>, <strong>blog</strong>, and <strong>projects</strong>.</p>
     <div class="mt-6">
@@ -22,7 +22,7 @@ const latest = posts.slice(0, 3);
   {latest.length > 0 && (
     <section class="mt-12">
       <h2 class="text-2xl font-semibold mb-4">Latest Posts</h2>
-      <div class="grid gap-4 sm:grid-cols-3">
+      <div class="grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
         {latest.map((p) => (
           <Card
             title={p.data.title}
