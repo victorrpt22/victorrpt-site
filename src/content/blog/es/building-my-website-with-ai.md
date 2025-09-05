@@ -8,7 +8,7 @@ draft: false
 heroImage: /banner-minimal.svg
 heroAlt: Banner minimalista con gradiente
 intro: Un vistazo rápido a cómo construí este sitio con Astro + Tailwind, i18n, posts en Markdown, GA4 y un modo oscuro limpio.
-sourceUrl: https://github.com/victorrpt22/victorrpt-site
+sourceUrl: https://github.com/victorrpt22/victorrpt-site/blob/main/src/content/blog/es/building-my-website-with-ai.md
 ---
 
 # 🌐 Construyendo mi sitio personal con Astro + AI
@@ -51,14 +51,14 @@ Fue como tener un copiloto que me dio snippets y me ahorró horas de búsqueda.
 
 ## 🧰 Tecnologías usadas
 
-- Astro: framework estático, rápido y minimalista.
-- Tailwind CSS: utilidades para estilos y modo oscuro por clase.
-- Content Collections de Astro: posts en Markdown con frontmatter tipado.
-- Enrutamiento i18n: inglés por defecto y español bajo `/es` con selector de idioma.
-- Google Analytics 4: métricas, cargado solo en producción mediante variables de entorno.
-- Hosting (Netlify): CI sencillo desde Git, previews y SSL.
-- GitHub: repositorio, issues y código abierto de este sitio.
-- ChatGPT Codex: asistente de IA para scaffolding, refactors y documentación.
+- [Astro](https://astro.build): framework estático, rápido y minimalista.
+- [Tailwind CSS](https://tailwindcss.com): utilidades para estilos y modo oscuro por clase.
+- C[ontent Collections de Astro](https://docs.astro.build/guides/content-collections/): posts en Markdown con frontmatter tipado.
+- [Enrutamiento i18n](https://docs.astro.build/guides/internationalization/): inglés por defecto y español bajo `/es` con selector de idioma.
+- [Google Analytics 4](https://developers.google.com/analytics?hl=es): métricas, cargado solo en producción mediante variables de entorno.
+- [Hosting (Netlify)](https://app.netlify.com): CI sencillo desde Git, previews y SSL.
+- [GitHub](https://github.com): repositorio, issues y código abierto de este sitio.
+- [ChatGPT Codex](https://openai.com/index/introducing-codex/): asistente de IA para scaffolding, refactors y documentación.
 
 Si quieres ver cómo está hecho por dentro, el código está aquí:  
 https://github.com/victorrpt22/victorrpt-site

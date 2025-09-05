@@ -8,7 +8,7 @@ draft: false
 heroImage: /banner-minimal.svg
 heroAlt: Minimal gradient banner
 intro: A quick look at how I built this site with Astro + Tailwind, i18n, Markdown posts, GA4, and a clean dark mode.
-sourceUrl: https://github.com/victorrpt22/victorrpt-site
+sourceUrl: https://github.com/victorrpt22/victorrpt-site/blob/main/src/content/blog/en/building-my-website-with-ai.md
 ---
 
 # 🌐 Building my personal site with Astro
@@ -51,14 +51,14 @@ It was like having a co-pilot suggesting snippets and saving me hours of searchi
 
 ## 🧰 Technologies used
 
-- Astro: static-first framework for fast, minimal sites.
-- Tailwind CSS: utility-first styling and class-based dark mode.
-- Astro Content Collections: typed Markdown posts with build-time validation.
-- i18n routing: English by default, Spanish under `/es` with a language switcher.
-- Google Analytics 4: traffic insights, loaded only in production via env.
-- Hosting (Netlify): easy CI from Git, previews, and SSL.
-- GitHub: repo, issues, and open-source code for this site.
-- ChatGPT Codex: AI assistant for scaffolding, refactoring, and docs.
+- [Astro](https://astro.build): static-first framework for fast, minimal sites.
+- [Tailwind CSS](https://tailwindcss.com): utility-first styling and class-based dark mode.
+- [Astro Content Collections](https://docs.astro.build/guides/content-collections/): typed Markdown posts with build-time validation.
+- [i18n routing](https://docs.astro.build/guides/internationalization/): English by default, Spanish under `/es` with a language switcher.
+- [Google Analytics 4](https://developers.google.com/analytics?hl=es): traffic insights, loaded only in production via env.
+- [Hosting (Netlify)](https://app.netlify.com): easy CI from Git, previews, and SSL.
+- [GitHub](https://github.com): repo, issues, and open-source code for this site.
+- [ChatGPT Codex](https://openai.com/index/introducing-codex/): AI assistant for scaffolding, refactoring, and docs.
 
 If you want to peek under the hood, the source is here:  
 https://github.com/victorrpt22/victorrpt-site
